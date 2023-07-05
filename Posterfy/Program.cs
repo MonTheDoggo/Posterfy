@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 builder.Services.AddScoped<ImageService>();
+builder.Services.AddSingleton<TokenService>();
 
 var app = builder.Build();
 
