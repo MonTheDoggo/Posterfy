@@ -6,5 +6,18 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <input id="searchField" type="text"/>
+
+    <ul id="searchResultList" class="list-group">
+        <li class="list-group-item">
+
+        </li>
+    </ul>
 </div>
+
+<script>
+    const searchInputHandler = function(e) {
+
+    }
+    $('searchField').addEventListener('input', searchInputHandler);
+</script>

@@ -8,16 +8,20 @@ namespace Posterfy.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         private ImageService imageService;
+        private TokenService tokenService;
+        public string accessToken;
 
-        public IndexModel(ILogger<IndexModel> logger, ImageService imageService)
+        public IndexModel(ILogger<IndexModel> logger, ImageService imageService, TokenService tokenService)
         {
             _logger = logger;
             this.imageService = imageService;
+            this.tokenService = tokenService;
+            this.accessToken = tokenService.Token.Access_Token;
         }
 
         public void OnGet()
         {
-            imageService.GetImageForAlbum("4aawyAB9vmqN3uQ7FjRGTy");
+            
         }
     }
 }
