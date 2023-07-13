@@ -1,6 +1,10 @@
 ﻿using Microsoft.Net.Http.Headers;
+using Newtonsoft.Json;
 using System.Net;
 using System.Web;
+using Newtonsoft.Json.Bson;
+using Posterfy.Model;
+using Single = System.Single;
 
 namespace Posterfy.Services
 {
@@ -15,7 +19,7 @@ namespace Posterfy.Services
             this.tokenService = tokenService;
         }
 
-        public async void GetImageForAlbum(string albumId)
+        public async Task GetImageForAlbum(string albumId)
         {
             await tokenService.GetToken();
             /*var content = new FormUrlEncodedContent(new[]
@@ -30,8 +34,26 @@ namespace Posterfy.Services
 
             //var response = await client.PostAsync("https://accounts.spotify.com/api/token", content);
             //string responseContent = await response.Content.ReadAsStringAsync();
-            var response = client.GetAsync($"{spotifyEndpoint}/albums/{albumId}");
-            Console.WriteLine(await response.Result.Content.ReadAsStringAsync());
+            var response = await client.GetAsync($"{spotifyEndpoint}/albums/{albumId}");
+            string responseMessage = await response.Content.ReadAsStringAsync();
+            Album album = JsonConvert.DeserializeObject<Album>(responseMessage);
+            //Console.WriteLine(responseMessage);
+            Console.WriteLine(album.ToString());
+        }
+
+        public async Task GetImageForSong(string songId)
+        {
+            await tokenService.GetToken();
+
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Authorization", $"Bearer {tokenService.Token.Access_Token}");
+
+            var response = await client.GetAsync($"{spotifyEndpoint}/tracks/{songId}");
+            string responseMessage = await response.Content.ReadAsStringAsync();
+            Single single = JsonConvert.DeserializeObject<Single>(responseMessage);
+            Console.WriteLine(single.ToString());
+            //Console.WriteLine(responseMessage);
+
         }
     }
 }

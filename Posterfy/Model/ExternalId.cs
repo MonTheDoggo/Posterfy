@@ -2,10 +2,11 @@
 
 namespace Posterfy.Model
 {
-    public class ClientValue
+    public class ExternalId
     {
-        public string ClientId { get; set; } = null;
-        public string ClientSecret { get; set; } = null;
+        public string Upc { get; set; } = null;
+        public string Isrc { get; set; } = null;
+        public string Ean { get; set; } = null;
 
         public string ToString()
         {

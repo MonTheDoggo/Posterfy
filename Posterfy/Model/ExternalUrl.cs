@@ -2,10 +2,9 @@
 
 namespace Posterfy.Model
 {
-    public class ClientValue
+    public class ExternalUrl
     {
-        public string ClientId { get; set; } = null;
-        public string ClientSecret { get; set; } = null;
+        public string Spotify { get; set; } = null;
 
         public string ToString()
         {

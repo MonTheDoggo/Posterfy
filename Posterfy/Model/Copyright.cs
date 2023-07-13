@@ -2,10 +2,10 @@
 
 namespace Posterfy.Model
 {
-    public class ClientValue
+    public class Copyright
     {
-        public string ClientId { get; set; } = null;
-        public string ClientSecret { get; set; } = null;
+        public string Text { get; set; } = null;
+        public string Type { get; set; } = null;
 
         public string ToString()
         {

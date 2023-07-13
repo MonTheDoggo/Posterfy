@@ -19,9 +19,11 @@ namespace Posterfy.Pages
             this.accessToken = tokenService.Token.Access_Token;
         }
 
-        public void OnGet()
+        public async void OnGet()
         {
-            
+            //await imageService.GetImageForSong("1tgofMvzgqtrVAx2YGkhzb");
+            await imageService.GetImageForSong("5hqxBvQJ3XJDSbxT9vyyqA");
+            //await imageService.GetImageForAlbum("3mebR1rG8L34EOFaw3zRCz");
         }
     }
 }

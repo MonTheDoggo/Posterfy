@@ -2,14 +2,16 @@
 
 namespace Posterfy.Model
 {
-    public class ClientValue
+    public class Image
     {
-        public string ClientId { get; set; } = null;
-        public string ClientSecret { get; set; } = null;
+        public int Height { get; set; } = 0;
+        public string Url { get; set; } = null;
+        public int Width { get; set; } = 0;
 
         public string ToString()
         {
             return JsonSerializer.Serialize(this);
         }
+
     }
 }

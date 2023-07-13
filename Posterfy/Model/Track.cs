@@ -2,10 +2,10 @@
 
 namespace Posterfy.Model
 {
-    public class ClientValue
+    public class Track
     {
-        public string ClientId { get; set; } = null;
-        public string ClientSecret { get; set; } = null;
+        public string Href { get; set; } = null;
+        public TrackItem[] Items { get; set; } = null;
 
         public string ToString()
         {
